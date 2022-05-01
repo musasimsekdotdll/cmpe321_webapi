@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<body>
+	<h1> Welcome back, what do you want to do?</h1>
+	<p>
+		<h2> Add a student to the system</h2>
+		<form class="form-group" method="POST" action="{%url 'add_student' %}"> {{add_student_form}}{%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+	    </form>
+	</p>
+	<p>
+		<h2> Add an instructor to the system</h2>
+		<form class="form-group" method="POST" action="{%url 'add_instructor' %}"> {{add_instructor_form}}{%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+	    </form>
+	</p>
+	<p>
+		<h2> Delete a student</h2>
+		<form class="form-group" method="POST" action="{% url 'delete_student' %}"> {{delete_student_form}}{%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>	
+	<p>
+		<h2>Update the title of the instructor</h2>
+		<form class="form-group" method="POST" action="{% url 'update_title' %}">{{update_title_form}} {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>View:</h2>
+		<a href="{% url 'view_students' %}">Students</a>
+		<br>
+		<br>
+		<a href="{% url 'view_instructors' %}">Instructors</a>
+		<br>
+	</p>
+	<p>
+		<h2>View grades of the student</h2>
+		<form class="form-group" method="POST" action="{% url 'view_grades' %}">{{grades_of_student_form}} {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>View courses of the instructor</h2>
+		<form class="form-group" method="POST" action="{% url 'view_courses' %}">{{courses_of_instructor_form}} {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>View average grade of the course</h2>
+		<form class="form-froup" method="POST" action="{% url 'view_average' %}">{{average_grade_form}} {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p></body>

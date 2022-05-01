@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<h1>Welcome back {{username}}, what do you want to do?</h1>
+	<p>
+		<h2>See courses</h2>
+		<form class="form-group" method="POST" action="{% url 'see_courses' %}"> {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">see</button>
+		</form>
+	</p>
+	<p>
+		<h2>Add a course</h2>
+		<form class="form-group" method="POST" action="{% url 'add_course' %}"> {{add_course_form}} {%csrf_token%}
+			<input type="hidden" name="student_id" value="{{student_id}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>See your course history</h2>
+		<form class="form-group" method="POST" action="{% url 'see_course_history' %}"> {%csrf_token%} 
+			<input type="hidden" name="student_id" value="{{student_id}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>Find courses by keyword</h2>
+		<form class="form-group" method="POST" action="{% url 'find_courses_keyword' %}"> {{find_courses_keyword_form}} {%csrf_token%} 
+			<input type="hidden" name="student_id" value="{{student_id}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">find</button>
+		</form>
+	</p>
+	<p>
+		<h2>Filter courses</h2>
+		<form class="form-group" method="POST" action="{% url 'filter_courses' %}"> {{filter_courses_form}} {%csrf_token%} 
+			<button type="submit" style="margin-top: 10px;" class="btn btn-success">filter</button>
+		</form>
+	</p>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<h1>Welcome back {{username}}, what do you want to do?</h1>
+	<p>
+		<h2>List available classrooms for a time slot</h2>
+		<form class="form-group" method="POST" action="{% url 'list_classrooms' %}">{{available_classrooms_form}} {%csrf_token%}
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>Open a course</h2>
+		<form class="form-group" method="POST" action="{% url 'open_course' %}"> {{open_course_form}} {%csrf_token%}
+			<input type="hidden" name="username" value="{{username}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>Add a prerequisite for a course</h2>
+		<form class="form-group" method="POST" action="{% url 'add_prereq' %}"> {{add_prereq_form}} {%csrf_token%} 
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>View courses given by you</h2>
+		<form class="form-group" method="POST" action="{% url 'view_courses_given' %}"> {%csrf_token%} 
+			<input type="hidden" name="username" value="{{username}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>View students enrolled for a course</h2>
+		<form class="form-group" method="POST" action="{% url 'view_enrolled_students' %}"> {{enrolled_students_form}} {%csrf_token%} 
+			<input type="hidden" name="username" value="{{username}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>Update name of a course</h2>
+		<form class="form-group" method="POST" action="{% url 'update_course_name' %}"> {{update_course_name_form}} {%csrf_token%} 
+			<input type="hidden" name="username" value="{{username}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+	<p>
+		<h2>Grade a student</h2>
+		<form class="form-group" method="POST" action="{% url 'grade_student' %}"> {{grade_student_form}} {%csrf_token%} 
+			<input type="hidden" name="username" value="{{username}}" />
+			<button type="submit" style="margin-top: 10px;"class="btn btn-success">submit</button>
+		</form>
+	</p>
+</html>

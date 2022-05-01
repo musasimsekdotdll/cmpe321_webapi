@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<html>
+<body>
+	<div class="container">
+		<table style="width:100%">
+			<tr>
+				{% for attr in attrs %}
+				<th> {{attr}} </th>
+				{% endfor %}
+			</tr>
+			{% for row in results %}
+			<tr>
+				{% for val in row %}
+				<td>
+					{{val}}
+				</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>		
+	</div>
+</body>
+</html>
